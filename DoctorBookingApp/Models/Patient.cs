@@ -1,6 +1,6 @@
 namespace DoctorBookingAPP.Models
 {
-    public class Patient
+    public class Patient : IUser
     {
         public int Id { get; set; }
         
