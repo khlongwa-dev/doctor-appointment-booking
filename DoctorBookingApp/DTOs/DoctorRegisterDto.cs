@@ -7,5 +7,7 @@ namespace DoctorBookingAPP.DTOs
         public required string Password { get; set; }
         public required string Specialization { get; set; }
         public required string Address { get; set; }
+        public required string ProfileImageUrl { get; set; }
+        public required string Bio { get; set; }
     }
 }
