@@ -33,7 +33,8 @@ namespace DoctorBookingAPP.Controllers
                 Email = dto.Email,
                 PasswordHash = passwordHash,
                 Specialization = dto.Specialization,
-                Address = dto.Address
+                ProfileImageUrl = dto.ProfileImageUrl,
+                Bio = dto.Bio
             };
 
             _context.Doctors.Add(doctor);
