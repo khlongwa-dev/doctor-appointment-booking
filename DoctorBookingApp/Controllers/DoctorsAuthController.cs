@@ -8,12 +8,12 @@ namespace DoctorBookingAPP.Controllers
 {
     [ApiController]
     [Route("api/[controller]")]
-    public class DoctorAuthController : ControllerBase
+    public class DoctorsAuthController : ControllerBase
     {
         private readonly AppDbContext _context;
         private readonly JwtService _jwt;
 
-        public DoctorAuthController(AppDbContext context, JwtService jwt)
+        public DoctorsAuthController(AppDbContext context, JwtService jwt)
         {
             _context = context;
             _jwt = jwt;
