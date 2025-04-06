@@ -9,5 +9,7 @@ namespace DoctorBookingAPP.Models
         public required string PasswordHash { get; set; }
         public required string Specialization { get; set; }
         public required string Address { get; set; }
+        public required string ProfileImageUrl { get; set; }
+        public required string Bio { get; set; }
     }
 }
