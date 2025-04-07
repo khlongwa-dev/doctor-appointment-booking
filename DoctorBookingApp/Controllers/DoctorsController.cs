@@ -30,5 +30,11 @@ namespace DoctorBookingAPP.Controllers
             await _context.SaveChangesAsync();
             return CreatedAtAction(nameof(GetAll), new { id = doctor.Id }, doctor);
         }
+
+        [HttpPost("{id}/upload-profile-image")]
+        public async Task<IActionResult> UploadProfileImage(int id, IFormFile file)
+        {
+            
+        }
     }
 }
