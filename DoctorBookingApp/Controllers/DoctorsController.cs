@@ -39,6 +39,8 @@ namespace DoctorBookingAPP.Controllers
             if (doctor == null)
                 return NotFound("Doctor not found.");
             
+            if (file == null || file.Length == 0)
+                return BadRequest("No file uploaded.");
         }
     }
 }
