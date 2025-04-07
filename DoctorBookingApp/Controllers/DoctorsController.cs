@@ -41,6 +41,9 @@ namespace DoctorBookingAPP.Controllers
             
             if (file == null || file.Length == 0)
                 return BadRequest("No file uploaded.");
+
+            var folderPath = Path.Combine("wwwroot", "images", "profiles");
+            Directory.CreateDirectory(folderPath);
         }
     }
 }
