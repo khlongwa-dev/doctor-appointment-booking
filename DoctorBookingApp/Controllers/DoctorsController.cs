@@ -34,6 +34,10 @@ namespace DoctorBookingAPP.Controllers
         [HttpPost("{id}/upload-profile-image")]
         public async Task<IActionResult> UploadProfileImage(int id, IFormFile file)
         {
+            var doctor = await _context.Doctors.FindAsync(id);
+
+            if (doctor == null)
+                return NotFound("Doctor not found.");
             
         }
     }
