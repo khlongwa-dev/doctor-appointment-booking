@@ -72,6 +72,7 @@ app.UseHttpsRedirection();
 
 app.UseAuthentication(); // authentication before authorization
 app.UseAuthorization();
+app.UseStaticFiles();
 
 app.MapControllers();
 
