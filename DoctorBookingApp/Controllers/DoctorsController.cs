@@ -1,3 +1,4 @@
+using System.Xml.Schema;
 using DoctorBookingAPP.Data;
 using DoctorBookingAPP.Models;
 using Microsoft.AspNetCore.Mvc;
@@ -47,6 +48,11 @@ namespace DoctorBookingAPP.Controllers
 
             var fileName = $"{Guid.NewGuid()}_{file.FileName}";
             var filePath = Path.Combine(folderPath, fileName);
+
+            using (var stream = new FileStream(filePath, FileMode.Create))
+            {
+                await file.CopyToAsync(stream);
+            }
         }
     }
 }
