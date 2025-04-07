@@ -44,6 +44,9 @@ namespace DoctorBookingAPP.Controllers
 
             var folderPath = Path.Combine("wwwroot", "images", "profiles");
             Directory.CreateDirectory(folderPath);
+
+            var fileName = $"{Guid.NewGuid()}_{file.FileName}";
+            var filePath = Path.Combine(folderPath, fileName);
         }
     }
 }
