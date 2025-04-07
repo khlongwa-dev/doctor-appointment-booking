@@ -53,6 +53,11 @@ namespace DoctorBookingAPP.Controllers
             {
                 await file.CopyToAsync(stream);
             }
+
+            doctor.ProfileImageUrl = $"/image/profiles/{fileName}";
+            await _context.SaveChangesAsync();
+
+            return Ok(new { imageUrl = doctor.ProfileImageUrl});
         }
     }
 }
