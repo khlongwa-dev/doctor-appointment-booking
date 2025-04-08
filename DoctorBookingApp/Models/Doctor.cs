@@ -11,5 +11,6 @@ namespace DoctorBookingAPP.Models
         public required string Address { get; set; }
         public required string ProfileImageUrl { get; set; }
         public required string Bio { get; set; }
+        public List<TimeSlot> TimeSlots { get; set; } = new ();
     }
 }
