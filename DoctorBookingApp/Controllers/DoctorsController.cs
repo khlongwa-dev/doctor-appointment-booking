@@ -1,4 +1,3 @@
-using System.Xml.Schema;
 using DoctorBookingAPP.Data;
 using DoctorBookingAPP.Models;
 using Microsoft.AspNetCore.Mvc;
