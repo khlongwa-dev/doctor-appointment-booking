@@ -1,4 +1,6 @@
+using System.Security.Claims;
 using DoctorBookingAPP.Data;
+using DoctorBookingAPP.DTOs;
 using DoctorBookingAPP.Models;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
@@ -18,6 +20,22 @@ namespace DoctorBookingAPP.Controllers
 
         [Authorize]
         [HttpPost("add-timeslot")]
+        public async Task<IActionResult> AddTimeSlot(TimeSlotDto dto)
+        {
+            var doctorId = int.Parse(User.FindFirst(ClaimTypes.NameIdentifier)?.Value);
+
+            var timeSlot = new TimeSlot
+            {
+                DoctorId = doctorId,
+                StartTime = dto.StartTime,
+                EndTime = dto.EndTime
+            };
+
+            _context.TimeSlots.Add(timeSlot);
+            await _context.SaveChangesAsync();
+
+            return Ok("Time slot added.");
+        }
     
     }
 }
