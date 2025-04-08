@@ -22,7 +22,10 @@ namespace DoctorBookingAPP.Controllers
         [HttpPost("add-timeslot")]
         public async Task<IActionResult> AddTimeSlot(TimeSlotDto dto)
         {
-            var doctorId = int.Parse(User.FindFirst(ClaimTypes.NameIdentifier)?.Value);
+            var idClaim = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+
+            if (string.IsNullOrEmpty(idClaim) || !int.TryParse(idClaim, out var doctorId))
+                return Unauthorized("Invalid token. Doctor ID not found.");
 
             var timeSlot = new TimeSlot
             {

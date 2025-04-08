@@ -9,5 +9,6 @@ namespace DoctorBookingAPP.Data
 
         public DbSet<Doctor> Doctors { get; set; }
         public DbSet<Patient> Patients { get; set; }
+        public DbSet<TimeSlot> TimeSlots { get; set; }
     }
 }
