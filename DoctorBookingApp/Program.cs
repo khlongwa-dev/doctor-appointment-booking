@@ -59,6 +59,18 @@ builder.Services.AddSwaggerGen(c =>
 builder.Services.AddDbContext<AppDbContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("AllowAllOrigins", policy =>
+    {
+        policy
+            .AllowAnyOrigin()
+            .AllowAnyMethod()
+            .AllowAnyHeader();
+    });
+});
+
+
 var app = builder.Build();
 
 // Middleware pipeline
@@ -73,6 +85,7 @@ app.UseHttpsRedirection();
 app.UseAuthentication(); // authentication before authorization
 app.UseAuthorization();
 app.UseStaticFiles();
+app.UseCors("AllowAllOrigins");
 
 app.MapControllers();
 
